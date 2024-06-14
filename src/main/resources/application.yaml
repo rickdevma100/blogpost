@@ -8,3 +8,8 @@ spring:
     url: jdbc:mysql://localhost:3306/blogpostdb
     username: root
     password: root
+  jpa:
+    properties:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create

@@ -5,8 +5,6 @@ import lombok.*;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "USER_ROLE")
 public class UserRole {
     @Id
