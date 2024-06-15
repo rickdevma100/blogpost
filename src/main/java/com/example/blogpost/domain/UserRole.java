@@ -5,7 +5,7 @@ import lombok.*;
 
 @Entity
 @Data
-@Table(name = "USER_ROLE")
+@Table(name = "USER_Master_ROLE")
 public class UserRole {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

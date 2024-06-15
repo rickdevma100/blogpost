@@ -33,9 +33,7 @@ public class Blog {
     private Date updatedAt;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "User")
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
-    private List<Comment> comments;
 }

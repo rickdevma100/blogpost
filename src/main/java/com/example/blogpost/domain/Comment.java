@@ -28,7 +28,7 @@ public class Comment {
     private Date updatedAt;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "Blog")
+    @JoinColumn(name = "blog_id")
 	private Blog blog;
 
 }

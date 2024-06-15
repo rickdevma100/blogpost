@@ -7,10 +7,9 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "User")
+@Table(name = "User_Master")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name="Name")
