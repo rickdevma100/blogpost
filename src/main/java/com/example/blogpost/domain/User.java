@@ -7,10 +7,11 @@ import java.util.List;
 
 @Entity
 @Data
+@Builder
 @Table(name = "User_Master")
 public class User {
     @Id
-    private Long id;
+    private long id;
 
     @Column(name="Name")
     private String name;
@@ -33,4 +34,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Blog> blogs;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Comment> comments;
 }
