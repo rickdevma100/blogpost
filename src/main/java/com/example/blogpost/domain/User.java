@@ -13,9 +13,6 @@ public class User {
     @Id
     private long id;
 
-    @Column(name="Name")
-    private String name;
-
     @Column(name="Email")
     private String emailId;
 
@@ -32,9 +29,11 @@ public class User {
     @JoinColumn(name = "role_id")
     private UserRole role;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "user_id")
     private List<Blog> blogs;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "user_id")
     private List<Comment> comments;
 }

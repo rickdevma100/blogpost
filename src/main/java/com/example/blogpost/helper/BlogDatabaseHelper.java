@@ -11,8 +11,8 @@ import java.util.List;
 public class BlogDatabaseHelper {
     public static List<User> getAllUsers() {
 
-        User user1 = User.builder().id(100).name("Rickdev").build();
-        User user2 = User.builder().id(101).name("Sayantika").build();
+        User user1 = User.builder().id(100).username("Rickdev").build();
+        User user2 = User.builder().id(101).username("Sayantika").build();
         return Arrays.asList(user1,user2);
 
     }
