@@ -1,14 +1,12 @@
 package com.example.blogpost.controller;
 
+import com.example.blogpost.domain.Blog;
 import com.example.blogpost.response.BlogResponse;
 import com.example.blogpost.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,24 +16,25 @@ public class BlogController {
     @Autowired
     private BlogService blogService;
     @GetMapping("/")
-    public ResponseEntity<List<BlogResponse>> getBlogs(){
+    public ResponseEntity<List<Blog>> getBlogs(){
 
-        List<BlogResponse> response =
+        List<Blog> response =
                 blogService.getAllBlogs();
-        return new ResponseEntity<List<BlogResponse>>(response, HttpStatus.OK);
+        return new ResponseEntity<List<Blog>>(response, HttpStatus.OK);
+    }
+    @PostMapping("/")
+    public ResponseEntity<Blog> addBlog(@RequestBody Blog blog){
+        return new ResponseEntity<Blog>(blogService.saveBlogs(blog),HttpStatus.CREATED);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<BlogResponse> getBlogsById(@PathVariable long id){
-
-        BlogResponse response =
-                blogService.getBlogById(id);
-        return new ResponseEntity<BlogResponse>(response, HttpStatus.OK);
+    public ResponseEntity<Blog> getBlogsById(@PathVariable long id){
+        return new ResponseEntity<Blog>(blogService.getAllBlogsById(id), HttpStatus.OK);
     }
-    @GetMapping("/user/{id}")
-    public ResponseEntity<List<BlogResponse>> getBlogsByUser(@PathVariable long id){
-
-        List<BlogResponse> response =
-                blogService.getBlogByUser(id);
-        return new ResponseEntity<List<BlogResponse>>(response, HttpStatus.OK);
-    }
+//    @GetMapping("/user/{id}")
+//    public ResponseEntity<List<BlogResponse>> getBlogsByUser(@PathVariable long id){
+//
+//        List<BlogResponse> response =
+//                blogService.getBlogByUser(id);
+//        return new ResponseEntity<List<BlogResponse>>(response, HttpStatus.OK);
+//    }
 }

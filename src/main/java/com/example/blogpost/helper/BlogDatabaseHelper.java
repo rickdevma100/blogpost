@@ -22,24 +22,21 @@ public class BlogDatabaseHelper {
                 .id(101)
                 .title("First Blog")
                 .content("First Blog jsbdkjf skjdfksd")
-                .createdAt(new Date(2023))
-                .updatedAt(new Date(2023))
+
                 .user(getAllUsers().get(0)).build();
 
         Blog blog2 = Blog.builder()
                 .id(102)
                 .title("Second Blog")
                 .content("First Blog jsbdkjf skjdfksd")
-                .createdAt(new Date(2023))
-                .updatedAt(new Date(2023))
+
                 .user(getAllUsers().get(1)).build();
 
         Blog blog3 = Blog.builder()
                 .id(103)
                 .title("Third Blog")
                 .content("First Blog jsbdkjf skjdfksd")
-                .createdAt(new Date(2023))
-                .updatedAt(new Date(2023))
+
                 .user(getAllUsers().get(0)).build();
 
         return Arrays.asList(blog1, blog2, blog3);
